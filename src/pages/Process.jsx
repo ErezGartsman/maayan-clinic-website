@@ -55,26 +55,33 @@ function Process() {
 
       <section className="px-6 pb-24 sm:px-10 md:px-12 md:pb-32 lg:px-16 xl:px-24">
         <div className="mx-auto max-w-2xl">
-          <div className="relative border-r-2 border-dashed border-[#EF8486]/30 pr-8 sm:pr-12">
-            <div className="space-y-16">
-              {STEPS.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: EASE }}
-                  className="relative"
-                >
-                  <div className="absolute -right-[38px] top-1 flex h-7 w-7 items-center justify-center rounded-full border border-[#EF8486] bg-cream-200 text-sm font-medium text-[#EF8486] sm:-right-[46px]">
+          {STEPS.map((step, index) => {
+            const isLast = index === STEPS.length - 1;
+            return (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: EASE }}
+                className="flex gap-6"
+              >
+                <div className="flex shrink-0 flex-col items-center">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#EF8486] bg-cream-200 text-sm font-medium text-[#EF8486]">
                     {index + 1}
                   </div>
+                  {!isLast && (
+                    <div aria-hidden="true" className="mt-2 w-0 grow border-r-2 border-dashed border-[#EF8486]/30" />
+                  )}
+                </div>
+
+                <div className={`min-w-0 pt-0.5 ${isLast ? "" : "pb-16"}`}>
                   <h3 className="text-xl font-medium text-taupe-600">{step.title}</h3>
                   <p className="mt-3 font-light leading-[1.9] text-taupe-500">{step.text}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 

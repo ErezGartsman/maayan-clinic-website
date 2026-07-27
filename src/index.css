@@ -5,11 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-cream-200 font-sans text-taupe-500 antialiased;
     font-size: 16px;
+    overflow-x: hidden;
   }
 
   /* Global type scale, set once here rather than per-component, so it can't

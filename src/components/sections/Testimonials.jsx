@@ -88,15 +88,15 @@ function Testimonials() {
         <h2 className="text-[40px] leading-tight text-taupe-600">המילים שלכן</h2>
         <div className="mx-auto mt-8 h-px w-10 bg-terracotta-300" />
 
-        <div className="relative mt-10 rounded-[28px] border border-terracotta-300/50 px-8 py-10 sm:px-14 sm:py-14">
+        <div className="relative mt-10 rounded-[28px] border border-terracotta-300/50 px-6 py-8">
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -top-6 right-6 select-none font-display text-5xl leading-none text-terracotta-500 sm:-top-7 sm:right-8 sm:text-6xl"
+            className="pointer-events-none absolute top-4 right-4 select-none font-display text-2xl leading-none text-terracotta-500 sm:text-3xl"
           >
             &ldquo;
           </span>
 
-          <div className="relative min-h-[16rem] sm:min-h-[10rem] md:min-h-[9rem]">
+          <div className="relative min-h-[17rem] sm:min-h-[11rem] md:min-h-[10rem]">
             <AnimatePresence>
               <motion.div
                 key={index}
@@ -104,7 +104,7 @@ function Testimonials() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: prefersReducedMotion ? 0.2 : 0.9, ease: "easeInOut" }}
-                className="absolute inset-0"
+                className="absolute inset-x-0 top-3 bottom-0"
               >
                 <p className="font-display text-xl font-light leading-[1.7] text-taupe-600 md:text-2xl">
                   {current.quote}
@@ -115,7 +115,7 @@ function Testimonials() {
 
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-6 left-6 select-none font-display text-5xl leading-none text-terracotta-500 sm:-bottom-7 sm:left-8 sm:text-6xl"
+            className="pointer-events-none absolute bottom-4 left-4 select-none font-display text-2xl leading-none text-terracotta-500 sm:text-3xl"
           >
             &rdquo;
           </span>
