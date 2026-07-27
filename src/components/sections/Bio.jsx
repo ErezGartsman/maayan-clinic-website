@@ -40,7 +40,7 @@ function Bio() {
             variants={prefersReducedMotion ? undefined : fadeUp}
             className="mt-3 text-2xl font-normal leading-snug text-taupe-500"
           >
-            רפואה סינית, דרך הבנה מערבית עמוקה.
+            רפואה סינית, דרך הבנה מערבית.
           </motion.h3>
 
           <motion.p

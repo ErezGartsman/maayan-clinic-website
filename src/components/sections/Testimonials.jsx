@@ -88,28 +88,37 @@ function Testimonials() {
         <h2 className="text-[40px] leading-tight text-taupe-600">המילים שלכן</h2>
         <div className="mx-auto mt-8 h-px w-10 bg-terracotta-300" />
 
-        <div className="relative mt-10 min-h-[12rem] sm:min-h-[9rem] md:min-h-[7rem]">
+        <div className="relative mt-10 rounded-[28px] border border-terracotta-300/50 px-8 py-10 sm:px-14 sm:py-14">
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -top-8 left-1/2 z-0 -translate-x-1/2 select-none font-display text-[6rem] leading-none text-terracotta-500/20 sm:-top-10 sm:text-[7.5rem]"
+            className="pointer-events-none absolute -top-6 right-6 select-none font-display text-5xl leading-none text-terracotta-500 sm:-top-7 sm:right-8 sm:text-6xl"
           >
-            "
+            &ldquo;
           </span>
 
-          <AnimatePresence>
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: prefersReducedMotion ? 0.2 : 0.9, ease: "easeInOut" }}
-              className="absolute inset-0 z-10"
-            >
-              <p className="font-display text-xl font-light leading-[1.7] text-taupe-600 md:text-2xl">
-                {current.quote}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+          <div className="relative min-h-[16rem] sm:min-h-[10rem] md:min-h-[9rem]">
+            <AnimatePresence>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: prefersReducedMotion ? 0.2 : 0.9, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <p className="font-display text-xl font-light leading-[1.7] text-taupe-600 md:text-2xl">
+                  {current.quote}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-6 left-6 select-none font-display text-5xl leading-none text-terracotta-500 sm:-bottom-7 sm:left-8 sm:text-6xl"
+          >
+            &rdquo;
+          </span>
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-4">

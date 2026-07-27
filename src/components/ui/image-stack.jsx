@@ -54,19 +54,19 @@ function ImageStack({ images = [] }) {
         })}
       </div>
 
-      <div className="mt-5 flex items-center justify-center gap-3 text-taupe-400">
+      <div className="mt-10 flex items-center justify-center gap-3 text-taupe-400">
         <motion.span
           animate={prefersReducedMotion ? undefined : { x: [0, 5, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ArrowIcon direction="start" className="h-3.5 w-3.5" />
+          <ArrowIcon direction="start" className="h-4 w-4" />
         </motion.span>
-        <span className="text-xs font-light tracking-wide">גררי לצדדים לצפייה בכל התעודות</span>
+        <span className="text-sm font-light tracking-wide">גררי לצדדים לצפייה בכל התעודות</span>
         <motion.span
           animate={prefersReducedMotion ? undefined : { x: [0, -5, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ArrowIcon direction="end" className="h-3.5 w-3.5" />
+          <ArrowIcon direction="end" className="h-4 w-4" />
         </motion.span>
       </div>
     </div>
