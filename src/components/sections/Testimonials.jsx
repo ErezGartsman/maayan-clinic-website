@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import ArrowIcon from "../icons/ArrowIcon.jsx";
 import { fadeUp, viewportOnce } from "../../lib/motion.js";
@@ -55,14 +55,39 @@ const TESTIMONIALS = [
 ];
 
 const AUTOPLAY_MS = 7000;
+const SWIPE_THRESHOLD = 50;
 
 function Testimonials() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const touchStart = useRef(null);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % TESTIMONIALS.length), []);
   const prev = useCallback(() => setIndex((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length), []);
+
+  const handleTouchStart = (event) => {
+    const touch = event.touches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const handleTouchEnd = (event) => {
+    if (!touchStart.current) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStart.current.x;
+    const dy = touch.clientY - touchStart.current.y;
+    touchStart.current = null;
+
+    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+
+    // RTL: a rightward drag (finger moving start-to-end in reading order) goes to the previous quote;
+    // a leftward drag advances to the next one.
+    if (dx > 0) {
+      prev();
+    } else {
+      next();
+    }
+  };
 
   useEffect(() => {
     if (prefersReducedMotion || paused) return undefined;
@@ -88,15 +113,19 @@ function Testimonials() {
         <h2 className="text-[40px] leading-tight text-taupe-600">המילים שלכן</h2>
         <div className="mx-auto mt-8 h-px w-10 bg-terracotta-300" />
 
-        <div className="relative mt-10 rounded-[28px] border border-terracotta-300/50 px-6 py-8">
+        <div
+          className="relative mt-10 rounded-[28px] border border-terracotta-300/50 px-6 py-8"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute top-4 right-4 select-none font-display text-2xl leading-none text-terracotta-500 sm:text-3xl"
+            className="pointer-events-none absolute top-2 right-4 select-none font-display text-7xl leading-none text-terracotta-500"
           >
             &ldquo;
           </span>
 
-          <div className="relative min-h-[17rem] sm:min-h-[11rem] md:min-h-[10rem]">
+          <div className="relative min-h-[22rem] sm:min-h-[16rem] md:min-h-[16rem]">
             <AnimatePresence>
               <motion.div
                 key={index}
@@ -104,7 +133,7 @@ function Testimonials() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: prefersReducedMotion ? 0.2 : 0.9, ease: "easeInOut" }}
-                className="absolute inset-x-0 top-3 bottom-0"
+                className="absolute inset-0 flex flex-col items-center justify-center text-center"
               >
                 <p className="font-display text-xl font-light leading-[1.7] text-taupe-600 md:text-2xl">
                   {current.quote}
@@ -115,7 +144,7 @@ function Testimonials() {
 
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-4 left-4 select-none font-display text-2xl leading-none text-terracotta-500 sm:text-3xl"
+            className="pointer-events-none absolute bottom-2 left-4 select-none font-display text-7xl leading-none text-terracotta-500"
           >
             &rdquo;
           </span>
