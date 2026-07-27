@@ -9,7 +9,7 @@ const STEPS = [
   },
   {
     title: "בניית התוכנית הטיפולית",
-    text: "ברגע שהבנו מה יצא מאיזון, אנחנו בונות את המפה שלך. נתאים פרוטוקול טיפולי אישי שיכול לשלב דיקור, שיאצו, תזונה וסאונד הילינג, כדי להתחיל להטעין את הגוף מחדש.",
+    text: "ברגע שהבנו מה יצא מאיזון, אנחנו בונות את המפה שלך. נתאים פרוטוקול טיפולי אישי שיכול לשלב דיקור, שיאצו, תזונה וסאונד הילינג, כדי להתחיל להטעין את הגוף מחדש בצורה עמוקה.",
   },
   {
     title: "מתחילות להניע",
@@ -66,7 +66,7 @@ function Process() {
                   transition={{ duration: 0.8, ease: EASE }}
                   className="relative"
                 >
-                  <div className="absolute -right-[57px] top-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#EF8486] font-bold text-white sm:-right-[74px]">
+                  <div className="absolute -right-[38px] top-1 flex h-7 w-7 items-center justify-center rounded-full border border-[#EF8486] bg-cream-200 text-sm font-medium text-[#EF8486] sm:-right-[46px]">
                     {index + 1}
                   </div>
                   <h3 className="text-xl font-medium text-taupe-600">{step.title}</h3>

@@ -18,7 +18,7 @@ function About() {
 
   return (
     <div className="bg-cream-200">
-      <section className="relative flex min-h-[440px] items-center justify-center overflow-hidden px-6 py-28 text-center sm:px-10">
+      <section className="relative flex min-h-[440px] items-center overflow-hidden px-6 py-28 sm:px-10">
         <img
           src="/about-me-hero.png"
           alt="מעיין ווקסלמן"
@@ -31,7 +31,7 @@ function About() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={prefersReducedMotion ? undefined : fadeUp}
-          className="relative text-white drop-shadow-md"
+          className="relative ml-auto max-w-[220px] text-right text-white drop-shadow-md sm:max-w-xs md:max-w-sm"
         >
           הסיפור שלי
         </motion.h1>

@@ -14,7 +14,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "אנחנו בטיפולי פוריות כבר שנה וחצי, וההחלטה לשלב דיקור לצד הטיפולים הרפואיים הייתה אחת ההחלטות הטובות שעשיתי. זה לא מבטיח שום דבר, אבל זה נותן לי תחושה שאני עושה משהו בשביל הגוף שלי, וזה המון.",
+      "אנחנו בטיפולי פוריות כבר שנה וחצי, וההחלטה לשלב דיקור לצד הטיפולים הרפואיים הייתה אחת ההחלטות הטובות שעשיתי. זה לא מבטיח שום דבר, אבל זה נותן לי תחושה שאני עושה משהו בשביל הגוף שלי.",
   },
   {
     quote:
@@ -89,6 +89,13 @@ function Testimonials() {
         <div className="mx-auto mt-8 h-px w-10 bg-terracotta-300" />
 
         <div className="relative mt-10 min-h-[12rem] sm:min-h-[9rem] md:min-h-[7rem]">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-8 left-1/2 z-0 -translate-x-1/2 select-none font-display text-[6rem] leading-none text-terracotta-500/20 sm:-top-10 sm:text-[7.5rem]"
+          >
+            "
+          </span>
+
           <AnimatePresence>
             <motion.div
               key={index}
@@ -96,7 +103,7 @@ function Testimonials() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: prefersReducedMotion ? 0.2 : 0.9, ease: "easeInOut" }}
-              className="absolute inset-0"
+              className="absolute inset-0 z-10"
             >
               <p className="font-display text-xl font-light leading-[1.7] text-taupe-600 md:text-2xl">
                 {current.quote}

@@ -35,7 +35,6 @@ const CONCERNS = [
   `בעיות${NBSP}פוריות`,
   `סטרס${NBSP}וחרדה`,
   `כאבי${NBSP}מחזור`,
-  "אנדומטריוזיס",
   `גיל${NBSP}המעבר`,
 ];
 
@@ -93,7 +92,7 @@ function Hero({ revealed = true }) {
             variants={prefersReducedMotion ? undefined : itemVariants}
             className="mx-auto mt-6 max-w-2xl text-[20px] font-light leading-snug text-cream-100/95 drop-shadow-md md:text-[30px]"
           >
-            טיפול שמגיע לשורש הבעיה, מתוך רוך, דיוק והקשבה.
+            טיפול שמגיע לשורש הבעיה.
           </motion.p>
 
           <motion.p

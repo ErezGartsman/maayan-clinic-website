@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import InstagramIcon from "../icons/InstagramIcon.jsx";
 import WhatsAppIcon from "../icons/WhatsAppIcon.jsx";
 import { WHATSAPP_HREF, WHATSAPP_PHONE } from "../../lib/whatsapp.js";
@@ -7,6 +8,9 @@ const ICON_LINK_CLASSES =
   "flex h-11 w-11 items-center justify-center text-taupe-400 transition duration-200 hover:text-terracotta-600 active:scale-90";
 
 function FloatingSocials() {
+  const { pathname } = useLocation();
+  const mobileButtonSide = pathname === "/process" ? "left-6" : "right-6";
+
   return (
     <>
       <div className="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-3 md:flex">
@@ -44,7 +48,7 @@ function FloatingSocials() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="שליחת הודעת וואטסאפ למעיין"
-        className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-terracotta-600 text-cream-100 shadow-soft transition duration-200 hover:bg-terracotta-700 active:scale-90 md:hidden"
+        className={`fixed bottom-6 ${mobileButtonSide} z-40 flex h-14 w-14 items-center justify-center rounded-full bg-terracotta-600 text-cream-100 shadow-soft transition duration-200 hover:bg-terracotta-700 active:scale-90 md:hidden`}
       >
         <WhatsAppIcon className="h-6 w-6" />
       </a>

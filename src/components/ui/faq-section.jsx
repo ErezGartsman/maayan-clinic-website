@@ -50,7 +50,11 @@ function FaqSection({ title, description, items = [] }) {
                   onClick={() => toggle(index)}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
-                  className="flex w-full items-center justify-between gap-4 py-6 text-start text-lg font-medium text-taupe-600 transition-colors duration-200 hover:text-terracotta-600"
+                  className={`flex w-full items-center justify-between gap-4 py-6 text-start text-lg font-medium transition-colors duration-200 ${
+                    isOpen
+                      ? "text-terracotta-600"
+                      : "text-taupe-600 [@media(hover:hover)]:hover:text-terracotta-600"
+                  }`}
                 >
                   <span>{item.question}</span>
                   <motion.span
