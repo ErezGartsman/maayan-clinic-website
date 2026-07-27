@@ -111,7 +111,7 @@ function Hero({ revealed = true }) {
               className="inline-flex min-h-[44px] items-center gap-2.5 rounded-full bg-[#EF8486]/80 px-6 py-3 text-[13px] font-medium tracking-wide text-white backdrop-blur-md transition-all hover:scale-105 hover:bg-[#EF8486]"
             >
               <WhatsAppIcon className="h-4 w-4 shrink-0" />
-              לתיאום פגישה בוואטסאפ
+              לתיאום טיפול בוואטסאפ
             </motion.a>
           </motion.div>
         </motion.div>

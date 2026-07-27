@@ -9,7 +9,7 @@ const VARIANT_CLASSES = {
 };
 
 function WhatsAppButton({
-  children = "לתיאום פגישה בוואטסאפ",
+  children = "לתיאום טיפול בוואטסאפ",
   variant = "filled",
   icon: Icon = WhatsAppIcon,
   className = "",

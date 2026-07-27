@@ -29,7 +29,7 @@ function ServiceDetail() {
   }
 
   const { detail } = service;
-  const whatsappMessage = `היי מעיין, הגעתי מהאתר שלך, אשמח לתאם טיפול ${service.title}`;
+  const whatsappMessage = `היי מעיין, הגעתי מהאתר שלך, אשמח לתאם טיפול ${service.title} 🪷`;
   const whatsappHref = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
