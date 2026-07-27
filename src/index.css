@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-200 font-sans text-taupe-500 antialiased;
+    font-size: 16px;
+  }
+
+  /* Global type scale, set once here rather than per-component, so it can't
+     drift: H1/H2 share one "main headline" tier (serif, ramping up to the
+     60px desktop target), H3/H4 are the 20px "secondary" tier, and stay in
+     the sans/body voice rather than the display serif. Individual
+     components only set color, weight-emphasis words, and layout — never
+     font-size — on these tags, so this stays the single source of truth. */
+  h1,
+  h2 {
+    @apply font-display font-light;
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  h3,
+  h4 {
+    @apply font-sans;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  @screen sm {
+    h1,
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  @screen md {
+    h1,
+    h2 {
+      font-size: 52px;
+    }
+  }
+
+  @screen lg {
+    h1,
+    h2 {
+      font-size: 60px;
+    }
+  }
+
+  ::selection {
+    @apply bg-terracotta-200 text-terracotta-800;
+  }
+
+  /* Calm, visible focus ring for keyboard users instead of the browser default. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-terracotta-400 ring-offset-2 ring-offset-cream-200;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
