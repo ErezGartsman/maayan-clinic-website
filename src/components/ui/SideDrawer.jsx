@@ -10,7 +10,7 @@ const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
 const inputClasses =
-  "mt-1.5 w-full border-0 border-b border-taupe-300 bg-transparent px-0 py-1.5 text-taupe-600 outline-none transition-colors duration-200 placeholder:text-taupe-300 focus:border-terracotta-500";
+  "mt-2 w-full min-h-[48px] border-0 border-b border-taupe-300 bg-transparent px-0 py-3 text-lg text-taupe-600 outline-none transition-colors duration-200 placeholder:text-taupe-300 focus:border-terracotta-500";
 
 function SideDrawer() {
   const { open, closeDrawer } = useDrawer();
@@ -107,10 +107,10 @@ function SideDrawer() {
                   <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
                 </svg>
               </button>
-              <h2 id={titleId} className="font-display text-2xl font-medium text-white">
+              <h2 id={titleId} className="font-display text-3xl font-medium text-white">
                 {status === "success" ? "תודה רבה!" : "הזמנת טיפול"}
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-white/85">
+              <p className="mt-2 text-base leading-relaxed text-white/85">
                 {status === "success"
                   ? "הפרטים נשלחו בהצלחה"
                   : "מלאי את הפרטים ואחזור אלייך לאישור ההזמנה"}
@@ -139,8 +139,8 @@ function SideDrawer() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-1 flex-col justify-between">
-                  <div className="space-y-5">
-                    <label className="block text-sm text-taupe-500">
+                  <div className="space-y-6">
+                    <label className="block text-base font-medium text-taupe-500">
                       שם פרטי<span className="text-terracotta-600">*</span>
                       <input
                         required
@@ -151,7 +151,7 @@ function SideDrawer() {
                       />
                     </label>
 
-                    <label className="block text-sm text-taupe-500">
+                    <label className="block text-base font-medium text-taupe-500">
                       טלפון<span className="text-terracotta-600">*</span>
                       <input
                         required
@@ -166,8 +166,8 @@ function SideDrawer() {
                   </div>
 
                   <fieldset disabled={isSending}>
-                    <legend className="text-sm text-taupe-500">איזה סוג טיפול את מעוניינת בו?</legend>
-                    <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5">
+                    <legend className="text-base font-medium text-taupe-500">איזה סוג טיפול את מעוניינת בו?</legend>
+                    <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
                       {SERVICES.map((service) => (
                         <label key={service.slug} className="flex items-center gap-2 text-sm text-taupe-600">
                           <input

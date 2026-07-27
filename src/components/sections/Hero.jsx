@@ -73,6 +73,7 @@ function Hero({ revealed = true }) {
       </div>
 
       <div className="pointer-events-none absolute inset-0 z-0 bg-[#EF8486]/20" />
+      <div className="pointer-events-none absolute inset-0 bg-taupe-900/40" />
 
       <div className="relative w-full px-6 py-24 text-center sm:px-10 md:px-12 lg:px-16 xl:px-24">
         <motion.div
